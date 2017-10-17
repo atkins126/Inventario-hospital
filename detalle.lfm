@@ -1,0 +1,209 @@
+object FDetalle: TFDetalle
+  Left = 323
+  Height = 464
+  Top = 253
+  Width = 740
+  Caption = 'Detalle de Despachos'
+  ClientHeight = 464
+  ClientWidth = 740
+  Font.Height = -13
+  KeyPreview = True
+  OnKeyPress = FormKeyPress
+  OnShow = FormShow
+  LCLVersion = '1.4.0.4'
+  object GProducto: TDBGrid
+    Left = 18
+    Height = 288
+    Top = 160
+    Width = 704
+    Color = clWindow
+    Columns = <    
+      item
+        Title.Alignment = taCenter
+        Title.Caption = 'CódDespacho'
+        Title.Font.Height = -16
+        Title.Font.Style = [fsBold]
+        Width = 120
+        FieldName = 'CodDespacho'
+      end    
+      item
+        Title.Alignment = taCenter
+        Title.Caption = 'Producto'
+        Title.Font.Height = -16
+        Title.Font.Style = [fsBold]
+        Width = 85
+        FieldName = 'producto'
+      end    
+      item
+        Title.Alignment = taCenter
+        Title.Caption = 'Empleado'
+        Title.Font.Height = -16
+        Title.Font.Style = [fsBold]
+        Width = 92
+        FieldName = 'Empleado'
+      end    
+      item
+        Title.Alignment = taCenter
+        Title.Caption = 'Solicitante'
+        Title.Font.Height = -16
+        Title.Font.Style = [fsBold]
+        Width = 97
+        FieldName = 'Solicitante'
+      end    
+      item
+        Title.Alignment = taCenter
+        Title.Caption = ' Cant. Solicitada'
+        Title.Font.Height = -16
+        Title.Font.Style = [fsBold]
+        Width = 134
+        FieldName = 'cantidad'
+      end    
+      item
+        Title.Alignment = taCenter
+        Title.Caption = 'Fecha'
+        Title.Font.Height = -16
+        Title.Font.Style = [fsBold]
+        Width = 59
+        FieldName = 'Fecha'
+      end    
+      item
+        Title.Alignment = taCenter
+        Title.Caption = 'Hora'
+        Title.Font.Height = -16
+        Title.Font.Style = [fsBold]
+        Width = 52
+        FieldName = 'Hora'
+      end>
+    DataSource = DSProducto
+    Options = [dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgAutoSizeColumns, dgCellEllipsis]
+    TabOrder = 0
+    TitleFont.Height = -16
+  end
+  object Bevel1: TBevel
+    Left = 18
+    Height = 136
+    Top = 16
+    Width = 704
+  end
+  object Button1: TButton
+    Left = 272
+    Height = 57
+    Top = 72
+    Width = 101
+    Caption = 'Consultar'
+    OnClick = Button1Click
+    TabOrder = 1
+  end
+  object Button2: TButton
+    Left = 416
+    Height = 57
+    Top = 72
+    Width = 101
+    Caption = 'Imprimir'
+    OnClick = Button2Click
+    TabOrder = 2
+  end
+  object Label1: TLabel
+    Left = 86
+    Height = 17
+    Top = 80
+    Width = 32
+    Caption = 'Inicial'
+    ParentColor = False
+  end
+  object Label2: TLabel
+    Left = 87
+    Height = 17
+    Top = 112
+    Width = 26
+    Caption = 'Final'
+    ParentColor = False
+  end
+  object DTFinal: TZVDateTimePicker
+    Left = 151
+    Height = 25
+    Top = 104
+    Width = 89
+    CenturyFrom = 1941
+    MaxDate = 2958465
+    MinDate = -53780
+    TabOrder = 3
+    TrailingSeparator = False
+    TextForNullDate = 'NULL'
+    LeadingZeros = True
+    Kind = dtkDate
+    TimeFormat = tf12
+    TimeDisplay = tdHMS
+    DateMode = dmComboBox
+    Date = 42698
+    Time = 0.350694444445253
+    UseDefaultSeparators = True
+  end
+  object DTInicial: TZVDateTimePicker
+    Left = 151
+    Height = 25
+    Top = 72
+    Width = 89
+    CenturyFrom = 1941
+    MaxDate = 2958465
+    MinDate = -53780
+    TabOrder = 4
+    TrailingSeparator = False
+    TextForNullDate = 'NULL'
+    LeadingZeros = True
+    Kind = dtkDate
+    TimeFormat = tf12
+    TimeDisplay = tdHMS
+    DateMode = dmComboBox
+    Date = 42698
+    Time = 0.350694444445253
+    UseDefaultSeparators = True
+  end
+  object Label3: TLabel
+    Left = 86
+    Height = 25
+    Top = 40
+    Width = 224
+    Caption = 'Indique el rango de fechas'
+    Font.Height = -19
+    ParentColor = False
+    ParentFont = False
+  end
+  object Button3: TButton
+    Left = 560
+    Height = 57
+    Top = 72
+    Width = 101
+    Caption = 'Cerrar'
+    OnClick = Button3Click
+    TabOrder = 5
+  end
+  object QDespacho: TZQuery
+    Connection = DMod.ZConn
+    SQL.Strings = (
+      ''
+    )
+    Params = <>
+    left = 640
+    top = 264
+  end
+  object DSProducto: TDataSource
+    DataSet = QDespacho
+    left = 560
+    top = 264
+  end
+  object frReport: TfrReport
+    Dataset = frDBDS
+    InitialZoom = pzDefault
+    Options = []
+    PreviewButtons = [pbZoom, pbLoad, pbSave, pbPrint, pbFind, pbHelp, pbExit]
+    DataType = dtDataSet
+    left = 226
+    top = 296
+  end
+  object frDBDS: TfrDBDataSet
+    DataSet = QDespacho
+    left = 304
+    top = 296
+  end
+end

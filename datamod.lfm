@@ -1,0 +1,20 @@
+object DMod: TDMod
+  OnCreate = DataModuleCreate
+  OldCreateOrder = False
+  Height = 186
+  HorizontalOffset = 235
+  VerticalOffset = 114
+  Width = 286
+  object ZConn: TZConnection
+    ControlsCodePage = cCP_UTF8
+    AutoEncodeStrings = False
+    Catalog = 'almacen'
+    Port = 3306
+    Database = 'almacen'
+    User = 'root'
+    Protocol = 'MariaDB-5'
+    LibraryLocation = 'D:\Users\Programación\Documents\Proyectos Lazarus\Proyecto Hospital\libmysql.dll'
+    left = 73
+    top = 73
+  end
+end

@@ -1,0 +1,105 @@
+object FCambioUsuario: TFCambioUsuario
+  Left = 271
+  Height = 236
+  Top = 239
+  Width = 367
+  BorderIcons = [biSystemMenu]
+  BorderStyle = bsSingle
+  Caption = 'Cambio de usuario '
+  ClientHeight = 236
+  ClientWidth = 367
+  Color = 13431502
+  OnShow = FormShow
+  Position = poScreenCenter
+  LCLVersion = '1.6.2.0'
+  object Label1: TLabel
+    Left = 22
+    Height = 15
+    Top = 60
+    Width = 45
+    Caption = 'Usuario:'
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object Label2: TLabel
+    Left = 22
+    Height = 15
+    Top = 104
+    Width = 65
+    Caption = 'Contraseña:'
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object EUsuario: TEdit
+    Left = 97
+    Height = 23
+    Top = 56
+    Width = 250
+    MaxLength = 15
+    OnKeyPress = EUsuarioKeyPress
+    OnKeyUp = EUsuarioKeyUp
+    TabOrder = 0
+  end
+  object EContrasena: TEdit
+    Left = 97
+    Height = 23
+    Top = 101
+    Width = 250
+    EchoMode = emPassword
+    Enabled = False
+    MaxLength = 20
+    OnKeyPress = EContrasenaKeyPress
+    OnKeyUp = EContrasenaKeyUp
+    PasswordChar = '*'
+    TabOrder = 1
+  end
+  object BAceptar: TButton
+    Left = 85
+    Height = 25
+    Top = 192
+    Width = 75
+    Caption = 'Aceptar'
+    Enabled = False
+    OnClick = BAceptarClick
+    TabOrder = 3
+  end
+  object CBSalir: TCheckBox
+    Left = 116
+    Height = 19
+    Top = 144
+    Width = 146
+    Caption = 'Salir de la sesión actual'
+    Font.Style = [fsBold]
+    OnChange = CBSalirChange
+    ParentFont = False
+    TabOrder = 2
+  end
+  object LUsrActivo: TLabel
+    Left = 22
+    Height = 14
+    Top = 17
+    Width = 324
+    Alignment = taCenter
+    AutoSize = False
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object BSalir: TButton
+    Left = 206
+    Height = 25
+    Top = 192
+    Width = 75
+    Caption = 'Salir'
+    OnClick = BSalirClick
+    TabOrder = 4
+  end
+  object ZQuery: TZQuery
+    Connection = DMod.ZConn
+    Params = <>
+    left = 16
+    top = 184
+  end
+end

@@ -1,0 +1,174 @@
+object FRepIngresos: TFRepIngresos
+  Left = 282
+  Height = 507
+  Top = 164
+  Width = 770
+  Caption = 'Ingresos'
+  ClientHeight = 507
+  ClientWidth = 770
+  Font.Height = -13
+  OnShow = FormShow
+  LCLVersion = '1.4.0.4'
+  object BConsultar: TButton
+    Left = 224
+    Height = 57
+    Top = 24
+    Width = 101
+    Caption = 'Consultar'
+    OnClick = BConsultarClick
+    TabOrder = 0
+  end
+  object DTInicial: TZVDateTimePicker
+    Left = 105
+    Height = 25
+    Top = 24
+    Width = 89
+    CenturyFrom = 1941
+    MaxDate = 2958465
+    MinDate = -53780
+    TabOrder = 1
+    TrailingSeparator = False
+    TextForNullDate = 'NULL'
+    LeadingZeros = True
+    Kind = dtkDate
+    TimeFormat = tf12
+    TimeDisplay = tdHMS
+    DateMode = dmComboBox
+    Date = 42698
+    Time = 0.350694444445253
+    UseDefaultSeparators = True
+  end
+  object BImprimir: TButton
+    Left = 344
+    Height = 57
+    Top = 24
+    Width = 101
+    Caption = 'Imprimir'
+    OnClick = BImprimirClick
+    TabOrder = 2
+  end
+  object BSalir: TButton
+    Left = 464
+    Height = 57
+    Top = 24
+    Width = 101
+    Caption = 'Cerrar'
+    OnClick = BSalirClick
+    TabOrder = 3
+  end
+  object Label2: TLabel
+    Left = 41
+    Height = 17
+    Top = 64
+    Width = 26
+    Caption = 'Final'
+    ParentColor = False
+  end
+  object Label1: TLabel
+    Left = 40
+    Height = 17
+    Top = 32
+    Width = 32
+    Caption = 'Inicial'
+    ParentColor = False
+  end
+  object DTFinal: TZVDateTimePicker
+    Left = 105
+    Height = 25
+    Top = 56
+    Width = 89
+    CenturyFrom = 1941
+    MaxDate = 2958465
+    MinDate = -53780
+    TabOrder = 4
+    TrailingSeparator = False
+    TextForNullDate = 'NULL'
+    LeadingZeros = True
+    Kind = dtkDate
+    TimeFormat = tf12
+    TimeDisplay = tdHMS
+    DateMode = dmComboBox
+    Date = 42698
+    Time = 0.350694444445253
+    UseDefaultSeparators = True
+  end
+  object GProducto: TDBGrid
+    Left = 25
+    Height = 352
+    Top = 112
+    Width = 720
+    Color = clWindow
+    Columns = <    
+      item
+        Title.Alignment = taCenter
+        Title.Caption = 'Producto'
+        Title.Font.Height = -16
+        Title.Font.Style = [fsBold]
+        Width = 85
+        FieldName = 'Descripcion'
+      end    
+      item
+        Title.Alignment = taCenter
+        Title.Caption = 'Altas'
+        Title.Font.Height = -16
+        Title.Font.Style = [fsBold]
+        Width = 53
+        FieldName = 'Altas'
+      end    
+      item
+        Title.Alignment = taCenter
+        Title.Caption = 'Fecha'
+        Title.Font.Height = -16
+        Title.Font.Style = [fsBold]
+        Width = 59
+        FieldName = 'Fecha'
+      end    
+      item
+        Title.Alignment = taCenter
+        Title.Caption = 'Proveedor'
+        Title.Font.Height = -16
+        Title.Font.Style = [fsBold]
+        Width = 94
+        FieldName = 'Proveedor'
+      end>
+    DataSource = DS
+    Options = [dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgAutoSizeColumns, dgCellEllipsis]
+    TabOrder = 5
+    TitleFont.Height = -16
+  end
+  object SBar: TStatusBar
+    Left = 0
+    Height = 23
+    Top = 484
+    Width = 770
+    Panels = <>
+  end
+  object frReport: TfrReport
+    Dataset = frDBDS
+    InitialZoom = pzDefault
+    Options = []
+    PreviewButtons = [pbZoom, pbLoad, pbSave, pbPrint, pbFind, pbHelp, pbExit]
+    DataType = dtDataSet
+    left = 254
+    top = 324
+  end
+  object frDBDS: TfrDBDataSet
+    DataSet = Query
+    left = 332
+    top = 324
+  end
+  object DS: TDataSource
+    DataSet = Query
+    left = 254
+    top = 264
+  end
+  object Query: TZQuery
+    Connection = DMod.ZConn
+    SQL.Strings = (
+      ''
+    )
+    Params = <>
+    left = 332
+    top = 264
+  end
+end

@@ -1,0 +1,469 @@
+object FIngrMaterial: TFIngrMaterial
+  Left = 379
+  Height = 692
+  Top = 31
+  Width = 788
+  Caption = 'Ingreso de Materiales'
+  ClientHeight = 692
+  ClientWidth = 788
+  Font.Height = -16
+  OnShow = FormShow
+  LCLVersion = '1.6.2.0'
+  object LDescr: TLabel
+    Left = 32
+    Height = 45
+    Top = 16
+    Width = 109
+    AutoSize = False
+    Caption = 'Descr. producto'
+    ParentColor = False
+  end
+  object EProducto: TEdit
+    Left = 152
+    Height = 29
+    Top = 24
+    Width = 608
+    CharCase = ecUppercase
+    MaxLength = 100
+    OnChange = EProductoChange
+    OnKeyPress = EProductoKeyPress
+    TabOrder = 0
+  end
+  object DBGrid: TDBGrid
+    Left = 32
+    Height = 228
+    Top = 80
+    Width = 728
+    Color = clWindow
+    Columns = <    
+      item
+        Alignment = taCenter
+        Title.Alignment = taCenter
+        Title.Font.Height = -16
+        Title.Font.Style = [fsBold]
+        Title.Caption = 'Código'
+        FieldName = 'CodProducto'
+      end    
+      item
+        Title.Alignment = taCenter
+        Title.Font.Height = -16
+        Title.Font.Style = [fsBold]
+        Title.Caption = 'Descripción'
+        Width = 105
+        FieldName = 'Descripcion'
+      end    
+      item
+        Title.Alignment = taCenter
+        Title.Font.Height = -16
+        Title.Font.Style = [fsBold]
+        Title.Caption = 'Presentación'
+        Width = 156
+        FieldName = 'UnidadMedida'
+      end    
+      item
+        Title.Alignment = taCenter
+        Title.Font.Height = -16
+        Title.Font.Style = [fsBold]
+        Title.Caption = 'Cantidad'
+        Width = 84
+        FieldName = 'Cantidad'
+      end    
+      item
+        Title.Alignment = taCenter
+        Title.Font.Height = -16
+        Title.Font.Style = [fsBold]
+        Title.Caption = 'Precio (Bs)'
+        Width = 96
+        FieldName = 'Precio'
+      end>
+    DataSource = DS
+    Options = [dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgAutoSizeColumns]
+    Scrollbars = ssVertical
+    TabOrder = 1
+    TitleFont.Height = -16
+    OnCellClick = DBGridCellClick
+    OnKeyUp = DBGridKeyUp
+  end
+  object Button2: TButton
+    Left = 685
+    Height = 25
+    Top = 618
+    Width = 75
+    Caption = 'Salir'
+    OnClick = Button2Click
+    TabOrder = 5
+  end
+  object GroupBox1: TGroupBox
+    Left = 32
+    Height = 130
+    Top = 326
+    Width = 728
+    Caption = ' Datos producto '
+    ClientHeight = 104
+    ClientWidth = 724
+    TabOrder = 2
+    object Label3: TLabel
+      Left = 34
+      Height = 21
+      Top = 12
+      Width = 84
+      Caption = 'Descripción:'
+      ParentColor = False
+    end
+    object EDescr: TEdit
+      Left = 186
+      Height = 29
+      Top = 8
+      Width = 501
+      CharCase = ecUppercase
+      Font.Height = -16
+      Font.Style = [fsBold]
+      OnChange = EUnidadChange
+      ParentFont = False
+      ReadOnly = True
+      TabStop = False
+      TabOrder = 0
+    end
+    object Label4: TLabel
+      Left = 34
+      Height = 21
+      Top = 47
+      Width = 130
+      Caption = 'Unidad de medida:'
+      ParentColor = False
+    end
+    object EUnidad: TEdit
+      Left = 186
+      Height = 29
+      Top = 42
+      Width = 224
+      CharCase = ecUppercase
+      MaxLength = 15
+      OnChange = EUnidadChange
+      TabOrder = 1
+    end
+    object ChBNvo: TCheckBox
+      Left = 440
+      Height = 25
+      Top = 43
+      Width = 160
+      Caption = 'Es un nuevo ingreso'
+      OnChange = ChBNvoChange
+      TabOrder = 2
+    end
+  end
+  object GroupBox2: TGroupBox
+    Left = 32
+    Height = 135
+    Top = 465
+    Width = 728
+    Caption = ' Precio/existencia '
+    ClientHeight = 109
+    ClientWidth = 724
+    TabOrder = 3
+    object LCantidad: TLabel
+      Left = 34
+      Height = 21
+      Top = 12
+      Width = 135
+      Caption = 'Cantidad a agregar:'
+      ParentColor = False
+    end
+    object ECantidad: TEdit
+      Left = 186
+      Height = 29
+      Top = 8
+      Width = 80
+      Alignment = taRightJustify
+      MaxLength = 5
+      NumbersOnly = True
+      OnChange = ECantidadChange
+      OnExit = ECantidadExit
+      TabOrder = 0
+      Text = '0'
+    end
+    object Label6: TLabel
+      Left = 399
+      Height = 21
+      Top = 16
+      Width = 100
+      Caption = 'Precio/unidad:'
+      ParentColor = False
+    end
+    object EPrecio: TEdit
+      Left = 519
+      Height = 29
+      Top = 8
+      Width = 168
+      Alignment = taRightJustify
+      MaxLength = 10
+      OnChange = EPrecioChange
+      OnExit = ECantidadExit
+      OnKeyPress = EPrecioKeyPress
+      TabOrder = 1
+      Text = '0'
+    end
+    object EProveedor: TEdit
+      Left = 186
+      Height = 29
+      Top = 42
+      Width = 501
+      CharCase = ecUppercase
+      Font.Height = -16
+      MaxLength = 30
+      OnChange = EUnidadChange
+      ParentFont = False
+      TabOrder = 2
+    end
+    object Label5: TLabel
+      Left = 34
+      Height = 21
+      Top = 46
+      Width = 75
+      Caption = 'Proveedor:'
+      ParentColor = False
+    end
+  end
+  object BGuardar: TButton
+    Left = 336
+    Height = 34
+    Top = 618
+    Width = 99
+    Caption = 'Guardar'
+    OnClick = BGuardarClick
+    TabOrder = 4
+  end
+  object SBar: TStatusBar
+    Left = 0
+    Height = 23
+    Top = 669
+    Width = 788
+    Font.Height = -13
+    Panels = <>
+    ParentFont = False
+  end
+  object Query: TZQuery
+    Connection = DMod.ZConn
+    SQL.Strings = (
+      'select * from productos'
+    )
+    Params = <>
+    left = 512
+    top = 128
+    object QueryCodProducto: TLargeintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'CodProducto'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object QueryDescripcion: TStringField
+      DisplayWidth = 400
+      FieldKind = fkData
+      FieldName = 'Descripcion'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 400
+    end
+    object QueryUnidadMedida: TStringField
+      DisplayWidth = 60
+      FieldKind = fkData
+      FieldName = 'UnidadMedida'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 60
+    end
+    object QueryCantidad: TLargeintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'Cantidad'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object QueryPrecio: TLargeintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'Precio'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object QueryEsValido: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'EsValido'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+  end
+  object DS: TDataSource
+    DataSet = QryLista
+    left = 581
+    top = 128
+  end
+  object QryLista: TZQuery
+    Connection = DMod.ZConn
+    SQL.Strings = (
+      'select * from productos'
+    )
+    Params = <>
+    left = 208
+    top = 128
+    object QueryDescripcion1: TStringField
+      DisplayWidth = 400
+      FieldKind = fkData
+      FieldName = 'Descripcion'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 400
+    end
+    object QueryUnidadMedida1: TStringField
+      DisplayWidth = 60
+      FieldKind = fkData
+      FieldName = 'UnidadMedida'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 60
+    end
+    object QueryCantidad1: TLargeintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'Cantidad'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object QueryPrecio1: TLargeintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'Precio'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object QueryEsValido1: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'EsValido'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      DisplayFormat = 'SI;NO'
+    end
+    object QryListaCodProducto: TLargeintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'CodProducto'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+  end
+  object Query1: TZQuery
+    Connection = DMod.ZConn
+    SQL.Strings = (
+      ''
+    )
+    Params = <>
+    left = 552
+    top = 610
+    object QueryCodProducto1: TLargeintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'CodProducto'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object QueryDescripcion2: TStringField
+      DisplayWidth = 400
+      FieldKind = fkData
+      FieldName = 'Descripcion'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 400
+    end
+    object QueryUnidadMedida2: TStringField
+      DisplayWidth = 60
+      FieldKind = fkData
+      FieldName = 'UnidadMedida'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 60
+    end
+    object QueryCantidad2: TLargeintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'Cantidad'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object QueryPrecio2: TLargeintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'Precio'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object QueryEsValido2: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'EsValido'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+  end
+  object DataSource1: TDataSource
+    DataSet = Query1
+    left = 494
+    top = 610
+  end
+end
